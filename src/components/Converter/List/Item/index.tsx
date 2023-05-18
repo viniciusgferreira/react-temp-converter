@@ -1,10 +1,11 @@
 import { Temp } from "..";
-import celsiusToFahrenheit from "../../../common/converter/celsiusToFahrenheit";
-import celsiusToKelvin from "../../../common/converter/celsiusToKelvin";
-import fahrenheitToCelsius from "../../../common/converter/fahrenheitToCelsius";
-import fahrenheitToKelvin from "../../../common/converter/fahrenheitToKelvin";
-import kelvinToCelsius from "../../../common/converter/kelvinToCelsius";
-import kelvinToFahrenheit from "../../../common/converter/kelvinToFahrenheit";
+import styles from './Item.module.scss'
+import celsiusToFahrenheit from "../../../../common/converter/celsiusToFahrenheit";
+import celsiusToKelvin from "../../../../common/converter/celsiusToKelvin";
+import fahrenheitToCelsius from "../../../../common/converter/fahrenheitToCelsius";
+import fahrenheitToKelvin from "../../../../common/converter/fahrenheitToKelvin";
+import kelvinToCelsius from "../../../../common/converter/kelvinToCelsius";
+import kelvinToFahrenheit from "../../../../common/converter/kelvinToFahrenheit";
 
 interface Props {
     label: string;
@@ -44,16 +45,21 @@ export default function Item({ label, temp, setTemp }: Props) {
     }
 
     return (
-        <label>
-            {label}
-            <input
-                type="text"
-                id={label}
-                value={temp[label]}
-                onChange={e => {
-                    changeAllTemp(e)
-                }}>
-            </input>
-        </label >
+        <li className={styles.item}>
+            <div className={styles.item__label}>
+                {label.toUpperCase()}
+            </div>
+            <div className={styles.temp}>
+                <input
+                    className={styles.item__input}
+                    type="text"
+                    id={label}
+                    value={temp[label]}
+                    onChange={e => {
+                        changeAllTemp(e)
+                    }}>
+                </input>
+            </div >
+        </li>
     )
 }

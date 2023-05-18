@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Item from "./Item";
+import styles from './List.module.scss'
 
 export type Temp = {
     celsius: number,
@@ -16,7 +17,7 @@ export default function List() {
     });
 
     return (
-        <form>
+        <ul className={styles.list}>
             <Item label="celsius"
                 temp={temp} setTemp={setTemp}
             />
@@ -28,6 +29,6 @@ export default function List() {
             <Item label="kelvin"
                 temp={temp} setTemp={setTemp}
             />
-        </form>
+        </ul>
     )
 }
