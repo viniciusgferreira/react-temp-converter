@@ -18,15 +18,15 @@ export default function List() {
 
     return (
         <ul className={styles.list}>
-            <Item label="celsius"
+            <Item label="celsius" minimumTemp={-273.15}
                 temp={temp} setTemp={setTemp}
             />
 
-            <Item label="fahrenheit"
+            <Item label="fahrenheit" minimumTemp={-459.67}
                 temp={temp} setTemp={setTemp}
             />
 
-            <Item label="kelvin"
+            <Item label="kelvin" minimumTemp={0}
                 temp={temp} setTemp={setTemp}
             />
         </ul>
