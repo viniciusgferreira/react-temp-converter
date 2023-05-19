@@ -1,22 +1,19 @@
 import { Temp } from "..";
+import { celsiusToFahrenheit, celsiusToKelvin, fahrenheitToCelsius, fahrenheitToKelvin, kelvinToCelsius, kelvinToFahrenheit } from "../../../../common/converter/converter";
 import styles from './Item.module.scss'
-import celsiusToFahrenheit from "../../../../common/converter/celsiusToFahrenheit";
-import celsiusToKelvin from "../../../../common/converter/celsiusToKelvin";
-import fahrenheitToCelsius from "../../../../common/converter/fahrenheitToCelsius";
-import fahrenheitToKelvin from "../../../../common/converter/fahrenheitToKelvin";
-import kelvinToCelsius from "../../../../common/converter/kelvinToCelsius";
-import kelvinToFahrenheit from "../../../../common/converter/kelvinToFahrenheit";
 
 interface Props {
     label: string;
+    minimumTemp: number,
     temp: Temp,
     setTemp: React.Dispatch<React.SetStateAction<Temp>>
 }
 
 
 
-export default function Item({ label, temp, setTemp }: Props) {
+export default function Item({ label, temp, minimumTemp, setTemp }: Props) {
     function changeAllTemp(event: React.ChangeEvent<HTMLInputElement>) {
+        if (isNaN(Number(event.target.value))) { console.log('if'); return }
         switch (event.target.id) {
             case 'celsius':
                 const celsius = Number(event.target.value)
@@ -52,13 +49,17 @@ export default function Item({ label, temp, setTemp }: Props) {
             <div className={styles.temp}>
                 <input
                     className={styles.item__input}
-                    type="text"
+                    type="number"
                     id={label}
+                    min={minimumTemp}
                     value={temp[label]}
                     onChange={e => {
                         changeAllTemp(e)
                     }}>
                 </input>
+                <span className={styles.item__unit}>
+                    °{label.substring(0, 1).toUpperCase()}
+                </span>
             </div >
         </li>
     )
