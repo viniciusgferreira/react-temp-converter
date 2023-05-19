@@ -27,4 +27,11 @@
         text-align: center;
         background-color: hsl(33, 100%, 98%);
     }
+
+    &__unit {
+        display: flex;
+        align-items: center;
+        font-size: 2em;
+        margin-left: 14px;
+    }
 }
