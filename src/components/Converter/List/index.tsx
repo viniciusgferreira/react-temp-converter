@@ -11,9 +11,9 @@ export type Temp = {
 
 export default function List() {
     const [temp, setTemp] = useState<Temp>({
-        celsius: 100,
-        fahrenheit: 212,
-        kelvin: 373.15
+        celsius: NaN,
+        fahrenheit: NaN,
+        kelvin: NaN
     });
 
     return (
