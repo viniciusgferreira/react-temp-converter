@@ -1,9 +1,11 @@
 .item {
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border: 2px hsl(25, 47%, 15%) solid;
+    justify-content: space-between;
+    padding: 12px 30px;
+    border: 2px #fff solid;
     border-radius: 30px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
 
     &__label {
         font-size: 1.5em;
