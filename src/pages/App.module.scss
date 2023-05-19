@@ -7,9 +7,9 @@
     height: fit-content;
     background-color: #fff;
     border: solid 1px #fff;
-    border-radius: 6px;
+    border-radius: 12px;
     box-sizing: border-box;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 
     @media screen and (min-width:1280px) {
         grid-template-areas:
