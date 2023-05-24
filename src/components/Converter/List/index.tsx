@@ -3,17 +3,17 @@ import Item from "./Item";
 import styles from './List.module.scss'
 
 export type Temp = {
-    celsius: number,
-    fahrenheit: number,
-    kelvin: number,
-    [key: string]: number;
+    celsius: number | string,
+    fahrenheit: number | string,
+    kelvin: number | string,
+    [key: string]: number | string;
 }
 
 export default function List() {
     const [temp, setTemp] = useState<Temp>({
-        celsius: NaN,
-        fahrenheit: NaN,
-        kelvin: NaN
+        celsius: '',
+        fahrenheit: '',
+        kelvin: '',
     });
 
     return (
