@@ -12,14 +12,6 @@ interface Props {
 
 
 export default function Item({ label, temp, minimumTemp, setTemp }: Props) {
-    function setEmptyTemp() {
-        setTemp({
-            celsius: '',
-            fahrenheit: '',
-            kelvin: ''
-        })
-    }
-
     function changeAllTemp(event: React.ChangeEvent<HTMLInputElement>) {
         if (event.target.value == '-') {
             setTemp({
@@ -36,7 +28,6 @@ export default function Item({ label, temp, minimumTemp, setTemp }: Props) {
         if (isNaN(unit)) { console.log('NaN'); return; }
 
         if (unit < minimumTemp) {
-            //setEmptyTemp();
             setTemp({
                 celsius: '',
                 fahrenheit: '',
