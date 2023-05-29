@@ -13,7 +13,8 @@ interface Props {
 
 export default function Item({ label, temp, minimumTemp, setTemp }: Props) {
     function changeAllTemp(event: React.ChangeEvent<HTMLInputElement>) {
-        if (event.target.value == '-') {
+        const tempInputText = event.target.value;
+        if (tempInputText == '-') {
             setTemp({
                 celsius: '',
                 fahrenheit: '',
@@ -23,11 +24,11 @@ export default function Item({ label, temp, minimumTemp, setTemp }: Props) {
             return
         }
 
-        const unit = Number(event.target.value);
+        let tempNumber = Number(tempInputText);
 
-        if (isNaN(unit)) { console.log('NaN'); return; }
+        if (isNaN(tempNumber)) { console.log('NaN'); return; }
 
-        if (unit < minimumTemp) {
+        if (tempNumber < minimumTemp) {
             setTemp({
                 celsius: '',
                 fahrenheit: '',
@@ -40,23 +41,23 @@ export default function Item({ label, temp, minimumTemp, setTemp }: Props) {
         switch (event.target.id) {
             case 'celsius':
                 setTemp({
-                    celsius: unit,
-                    fahrenheit: celsiusToFahrenheit(unit),
-                    kelvin: celsiusToKelvin(unit)
+                    celsius: tempInputText,
+                    fahrenheit: celsiusToFahrenheit(tempNumber),
+                    kelvin: celsiusToKelvin(tempNumber)
                 })
                 break;
             case 'fahrenheit':
                 setTemp({
-                    celsius: fahrenheitToCelsius(unit),
-                    fahrenheit: unit,
-                    kelvin: fahrenheitToKelvin(unit)
+                    celsius: fahrenheitToCelsius(tempNumber),
+                    fahrenheit: tempInputText,
+                    kelvin: fahrenheitToKelvin(tempNumber)
                 })
                 break;
             case 'kelvin':
                 setTemp({
-                    celsius: kelvinToCelsius(unit),
-                    fahrenheit: kelvinToFahrenheit(unit),
-                    kelvin: unit
+                    celsius: kelvinToCelsius(tempNumber),
+                    fahrenheit: kelvinToFahrenheit(tempNumber),
+                    kelvin: tempInputText
                 })
         }
     }
