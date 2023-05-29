@@ -35,3 +35,35 @@
         margin-left: 14px;
     }
 }
+
+@media (max-width: 767px) {
+    .item {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        border-radius: 20px;
+    }
+
+    .item__label {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .temp {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .item__input {
+        font-size: 1.2em;
+        width: 70%;
+
+    }
+
+    .item__unit {
+        margin-left: 5px;
+        font-size: 1.2em;
+    }
+}

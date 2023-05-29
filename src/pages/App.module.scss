@@ -12,15 +12,17 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 
     @media screen and (min-width:1280px) {
-        grid-template-areas:
-            "nova-tarefa tarefas"
-            "cronometro tarefas"
-        ;
         column-gap: 64px;
         grid-template-rows: min-content min-content;
         grid-template-columns: 750px 300px;
         justify-content: center;
         align-content: center;
         padding: 64px;
+    }
+
+    @media (max-width: 767px) {
+        h2 {
+            font-size: 1em;
+        }
     }
 }
